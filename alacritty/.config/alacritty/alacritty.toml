@@ -1,0 +1,13 @@
+[general]
+import = [ "~/.config/alacritty/xterm.toml" ]
+
+[window]
+startup_mode = "Maximized"
+
+[font]
+# see ~/.config/fontconfig/fonts.conf
+normal = {family = "my-chosen-font-family", style = "Normal"}
+bold = {family = "my-chosen-font-family", style = "Bold"}
+italic = {family = "my-chosen-font-family", style = "Italic"}
+bold_italic = {family = "my-chosen-font-family", style = "Bold Italic"}
+size = 11

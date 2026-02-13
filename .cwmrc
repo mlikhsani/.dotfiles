@@ -1,0 +1,63 @@
+# APPEARANCE
+fontname "Terminus:size=9"
+sticky yes
+gap 0 10 0 0
+
+borderwidth 1
+color activeborder "#005577"
+color inactiveborder "#444444"
+
+# APPLICATION MENU (as powermenu)
+command     browser         qutebrowser
+command     terminal        alacritty
+command     "file manager"  pcmanfm
+command     " "             ""
+command     "shutdown"      poweroff
+command     "restart"       "shutdown -r now"
+
+# IGNORE
+ignore "dzen title"
+
+# MOUSE KEYBINDING
+unbind-mouse all
+bind-mouse  1       menu-cmd
+bind-mouse  4-1     window-move
+bind-mouse  4-2     window-resize
+
+# KEYBOARD KEYBINDING
+unbind-key  all
+
+bind-key    S4-c    window-close
+bind-key    S4-r    restart
+bind-key    S4-q    quit
+bind-key    S4-f    window-fullscreen
+bind-key    4-l     menu-exec
+bind-key    4-m     window-maximize
+bind-key    4-h     window-cycle
+bind-key    4-t     window-rcycle
+bind-key    4-Tab   group-last
+bind-key    4-1     group-only-1
+bind-key    4-2     group-only-2
+bind-key    4-3     group-only-3
+bind-key    4-4     group-only-4
+bind-key    4S-1    window-movetogroup-1
+bind-key    4S-2    window-movetogroup-2
+bind-key    4S-3    window-movetogroup-3
+bind-key    4S-4    window-movetogroup-4
+
+# volume
+bind-key    XF86AudioRaiseVolume  "mixer vol.volume=+5%"
+bind-key    XF86AudioLowerVolume  "mixer vol.volume=-5%"
+bind-key    XF86AudioMute         "mixer vol.mute=toggle"
+
+# programs
+bind-key    4-Print               "flameshot full -p /home/ikhsan/Pictures/screenshot/"
+bind-key    S4-Print              "flameshot gui"
+bind-key    S4-Return             alacritty
+bind-key    S4-l                  lock_screen.sh
+
+# GROUP
+autogroup   2       "pcmanfm", "Pcmanfm"
+autogroup   3       "org-knopflerfish-framework-BundleThread", "org-knopflerfish-framework-BundleThread"
+autogroup   4       "Navigator", "librewolf"
+autogroup   4       "qutebrowser", "qutebrowser"
