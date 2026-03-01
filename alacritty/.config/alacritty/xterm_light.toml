@@ -2,8 +2,8 @@
 
 # Default colors
 [colors.primary]
-foreground = '#080808'
-background = '#f8f8ba'
+foreground = '#000000'
+background = '#ffffff'
 
 # Normal colors
 [colors.normal]

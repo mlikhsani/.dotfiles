@@ -50,6 +50,10 @@ bind-key    XF86AudioRaiseVolume  "mixer vol.volume=+5%"
 bind-key    XF86AudioLowerVolume  "mixer vol.volume=-5%"
 bind-key    XF86AudioMute         "mixer vol.mute=toggle"
 
+# brightness (need acpi_video module loaded)
+bind-key    XF86MonBrightnessUp   "backlight incr 4"
+bind-key    XF86MonBrightnessDown "backlight decr 4"
+
 # programs
 bind-key    4-Print               "flameshot full -p /home/ikhsan/Pictures/screenshot/"
 bind-key    S4-Print              "flameshot gui"
@@ -59,5 +63,4 @@ bind-key    S4-l                  lock_screen.sh
 # GROUP
 autogroup   2       "pcmanfm", "Pcmanfm"
 autogroup   3       "org-knopflerfish-framework-BundleThread", "org-knopflerfish-framework-BundleThread"
-autogroup   4       "Navigator", "librewolf"
 autogroup   4       "qutebrowser", "qutebrowser"

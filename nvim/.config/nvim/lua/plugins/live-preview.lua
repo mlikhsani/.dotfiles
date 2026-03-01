@@ -3,4 +3,5 @@ return {
     dependencies = {
         "ibhagwan/fzf-lua",
     },
+    cmd = "LivePreview",
 }
