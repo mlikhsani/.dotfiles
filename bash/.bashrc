@@ -9,7 +9,7 @@
 # PS1='\u@\h \W$(__git_ps1 " (%s)")\$ '
 PS1='\w $(__git_ps1 "(\[\e[31m\]%s\[\e[0m\])")\$ '
 
-EDITOR=nvim
+EDITOR=vim
 export EDITOR
 
 PAGER=less
@@ -22,7 +22,7 @@ alias m="$PAGER"
 alias ll='ls -laFoG'
 alias l='ls -lG'
 alias g='egrep --color=auto -i'
-alias vim='nvim'
+alias vim=nvim
 
 # bash completion after doas
 complete -cf doas
