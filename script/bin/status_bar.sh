@@ -83,8 +83,7 @@ __battery() {
 }
 
 # GATHERING DATA AND SHOW DATA
-while :; do
-
+while true; do
     DATE=$(date "+%Y-%m-%d,%a %H:%M")
     FREQ=$(sysctl -n dev.cpu.0.freq)
     TEMP=$(sysctl -n dev.amdtemp.0.core0.sensor0)
@@ -97,7 +96,7 @@ while :; do
     PS=$(ps ax -o %cpu,rss,comm | sed 1d | grep -v 'idle$' | sort -r -n |
         head -3 | awk '{printf("%s/%d%%/%.1fGB ",$3,$1,$2/1024/1024)}')
 
-    echo -n "│ SSID:$(__ssid) "
+    echo -n "SSID:$(__ssid) "
     echo -n "│ GW:$(__gateway) "
     echo -n "│ DNS:$(__dns) "
     echo -n "│ SYS:${FREQ}MHz/${TEMP}/${LOAD}/${MEM}GB "

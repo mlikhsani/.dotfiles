@@ -1,0 +1,27 @@
+# colorscheme based on https://github.com/romainl/vim-dichromatic
+
+[colors.primary]
+background = '#080808'
+foreground = '#FFFFFF'
+
+# Normal colors
+[colors.normal]
+black   = '#080808'
+red 	= '#AF5FAF'
+green   = '#008700'
+yellow  = '#AFAF00'
+blue    = '#00009F' # edited from 5F to 9F
+magenta = '#87005F'
+cyan    = '#87D7D7'
+white   = '#D0D0D0'
+
+# Bright colors
+[colors.bright]
+black 	= '#808080'
+red 	= '#D75F87'
+green	= '#5FAF87'
+yellow	= '#DFDF87'
+blue	= '#87D7D7'
+magenta = '#D75F87'
+cyan	= '#87D7D7'
+white	= '#FFFFFF'
