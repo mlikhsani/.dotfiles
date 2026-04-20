@@ -3,6 +3,10 @@ fontname "Terminus:size=9"
 sticky yes
 gap 0 10 0 0
 
+borderwidth 1
+color activeborder '#ffffff'
+color inactiveborder '#222222'
+
 # APPLICATION MENU (as powermenu)
 command     browser         qutebrowser
 command     terminal        alacritty

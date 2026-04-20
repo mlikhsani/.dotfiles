@@ -8,3 +8,5 @@ c.tabs.show = "multiple"
 
 # always save session
 c.auto_save.session = True
+
+c.qt.force_software_rendering = "chromium"
