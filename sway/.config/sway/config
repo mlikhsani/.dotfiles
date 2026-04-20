@@ -1,0 +1,117 @@
+xwayland disable
+font pango:Terminus 8
+workspace_layout tabbed
+titlebar_padding 1
+default_border pixel 1
+default_floating_border pixel 1
+seat * hide_cursor when-typing enable
+
+# Executables
+exec $HOME/.config/sway/exec-once.sh
+exec_always $HOME/.config/sway/exec-always.sh
+
+set $mod Mod4
+set $term footclient
+set $menu wmenu-run -f "Terminus 8"
+
+floating_modifier $mod normal
+
+bindsym $mod+h focus left
+bindsym $mod+t focus right
+bindsym $mod+Shift+Return exec $term
+bindsym $mod+Shift+c kill
+bindsym $mod+l exec $menu
+bindsym $mod+Shift+r reload
+
+# Sway exit menu (logs you out of your Wayland session)
+bindsym $mod+Shift+e exec swaynag -f "Terminus 8" -t warning -m \
+        'You pressed the exit menu. Do you really want to exit sway? \
+        This will end your Wayland session.' \
+        -B 'Exit' 'swaymsg exit' \
+        -B 'Shutdown' 'poweroff' \
+        -B 'Reboot' 'shutdown -r now' \
+
+# Make the current focus fullscreen
+bindsym $mod+f fullscreen
+
+# Toggle the current focus between floating and non-floating
+bindsym $mod+Ctrl+space floating toggle
+
+# Toggle the current focus between tiling and tabbed mode
+bindsym $mod+Shift+space layout toggle tabbed splith
+
+# Swap focus between the tiling area and the floating area
+bindsym $mod+space focus mode_toggle
+
+# Swap workspace back and forth
+bindsym $mod+Tab workspace back_and_forth
+
+# Switch to workspace
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+
+# Special keys to adjust volume via OSS mixer
+bindsym --locked XF86AudioMute exec mixer vol.mute=toggle
+bindsym --locked XF86AudioLowerVolume exec mixer vol=-5%
+bindsym --locked XF86AudioRaiseVolume exec mixer vol=+5%
+# bindsym --locked XF86AudioMicMute exec ....
+
+# Special keys to adjust brightness via backlight
+bindsym --locked XF86MonBrightnessDown exec backlight decr 4
+bindsym --locked XF86MonBrightnessUp exec backlight incr 4
+
+# Special key to take a screenshot with grim & slurp
+bindsym $mod+Print exec grim $HOME/Pictures/screenshot/$(date +'%Y-%m-%d-%H%m%S.png')
+bindsym $mod+Shift+Print exec grim -g "$(slurp)" $HOME/Pictures/screenshot/$(date +'%Y-%m-%d-%H%m%S.png')
+
+# Specific app rule
+assign [app_id="pcmanfm"] workspace 2
+assign [app_id="org.pwmt.zathura"] workspace 3
+assign [app_id="org.qutebrowser.qutebrowser"] workspace 4
+
+# Output configuration
+# Default wallpaper (more resolutions are available in /usr/local/share/backgrounds/sway/)
+# output * bg /usr/local/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg $HOME/Pictures/wallpaper/darkness-devil.png fill
+
+# Idle configuration
+exec swayidle -w \
+         timeout 300 'swaylock -f -c 000000' \
+         timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+         before-sleep 'swaylock -f -c 000000'
+
+# Read `man 5 sway-input` for more information about this section.
+input type:touchpad {
+        dwt enabled
+        tap enabled
+        natural_scroll disable
+        middle_emulation enabled
+}
+input type:keyboard {
+        xkb_layout us
+        xkb_variant dvorak 
+} 
+
+# Read `man 5 sway-bar` for more information about this section.
+bar {
+    status_command i3status
+    position bottom
+    status_padding 0
+    tray_padding 0
+    height 14
+    separator_symbol "│"
+
+    colors {
+        background #000000
+        inactive_workspace #323232 #323232 #ffffff
+        separator #444444
+    }
+}
