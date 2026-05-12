@@ -1,0 +1,5 @@
+#!/bin/sh
+
+xlock \
+    -mode blank \
+    -dpmsoff 5 \

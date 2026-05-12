@@ -1,14 +1,14 @@
 # APPEARANCE
-fontname "Terminus:size=9"
+fontname "Terminus:size=10"
 sticky yes
-gap 0 10 0 0
+gap 0 0 0 12
 
-borderwidth 1
-color activeborder '#ffffff'
-color inactiveborder '#222222'
+borderwidth 4
+color activeborder '#0000AA'
+color inactiveborder '#AA0000'
 
 # APPLICATION MENU (as powermenu)
-command     browser         qutebrowser
+command     browser         librewolf
 command     terminal        alacritty
 command     "file manager"  pcmanfm
 command     webcam          webcam.sh
@@ -52,17 +52,17 @@ bind-key    XF86AudioLowerVolume  "mixer vol.volume=-5%"
 bind-key    XF86AudioMute         "mixer vol.mute=toggle"
 
 # brightness (need acpi_video module loaded). Enable if using drm-kmod other than ver 61
-bind-key    XF86MonBrightnessUp   "backlight incr 4"
-bind-key    XF86MonBrightnessDown "backlight decr 4"
+bind-key    XF86MonBrightnessUp   "backlight incr 10"
+bind-key    XF86MonBrightnessDown "backlight decr 10"
 
 # programs
 bind-key    4-Print               "flameshot full -p /home/ikhsan/Pictures/screenshot/"
 bind-key    S4-Print              "flameshot gui"
 bind-key    S4-Return             alacritty
-bind-key    S4-l                  lock_screen.sh
+bind-key    S4-l                  lock.sh
 
 # GROUP
 autogroup   1       "Alacritty", "Alacritty"
 autogroup   2       "pcmanfm", "Pcmanfm"
 autogroup   3       "org.pwmt.zathura", "Zathura"
-autogroup   4       "qutebrowser", "qutebrowser"
+autogroup   4       "Navigator", "librewolf"
